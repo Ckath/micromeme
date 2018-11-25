@@ -1,0 +1,4 @@
+**/*.o
+**/*.hex
+light_activated_nightmode
+button_login
