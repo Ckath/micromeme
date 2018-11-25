@@ -1,4 +1,4 @@
 **/*.o
 **/*.hex
-light_activated_nightmode
-button_login
+light_activated_nightmode/light_activated_nightmode
+button_login/button_login
