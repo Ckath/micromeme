@@ -8,13 +8,16 @@
 #define INTERVAL_MS 100
 #define NIGHTMODE_ON KEY_F1, KEY_LEFT_GUI
 #define NIGHTMODE_OFF KEY_F2, KEY_LEFT_GUI
-#define NIGHT_LDR_VALUE 350
+#define NIGHT_LDR_VALUE 100
 
 #define DAY_MODE 0
 #define NIGHT_MODE 1
 
 int main(void)
 {
+	// setup pin for christmas lights
+	DDRB = (1<<5);
+
 	// setup adc
 	DDRF = 0;
 	ADCSRA  = (1 << ADEN) | (0b111 << ADPS0);
@@ -47,9 +50,11 @@ int main(void)
 			if (mode != NIGHT_MODE && ldr_value/measurements < NIGHT_LDR_VALUE) {
 				mode = NIGHT_MODE;
 				usb_keyboard_press(NIGHTMODE_ON);
+				PORTB |= (1<<5);
 			} else if (mode != DAY_MODE && ldr_value/measurements > NIGHT_LDR_VALUE) {
 				mode = DAY_MODE;
 				usb_keyboard_press(NIGHTMODE_OFF);
+				PORTB &= ~(1<<5);
 			}
 
 			// reset for next run
