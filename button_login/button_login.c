@@ -2,7 +2,7 @@
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "lib/usb_keyboard.h"
+#include "../lib/usb_keyboard.h"
 
 #define USER \
 	usb_keyboard_press(KEY_U, 0); \
