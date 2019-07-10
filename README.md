@@ -14,7 +14,10 @@ to clean compiled files:`make clean`
 deps: avr-gcc, avrdude, make
 
 ### light activated nightmode
-turn blue light filter on/off based on value light in the room, with ldr sensor
+turn blue light filter and christmas lights on/off based on value light in the room, with ldr sensor
+
+### nightmode switch
+turn blue light filter and christmas lights on/off based on switch
 
 ### button login
 one button tty login
